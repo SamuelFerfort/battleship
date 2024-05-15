@@ -38,7 +38,10 @@ describe("GameBoard", () => {
 
   test("receiveAttack should return the updated HP after a successful attack", () => {
     gameBoard.getBoard()[0][0].hasShip = true;
+    gameBoard.getBoard()[0][0].ship = new Ship(2);
+
+
     gameBoard.receiveAttack(0, 0);
-    expect(gameBoard.getHp()).toBe(19); // Ship hit, so HP should decrease by 1
+    expect(gameBoard.getHp()).toBe(19); 
   });
 });

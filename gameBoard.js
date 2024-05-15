@@ -84,7 +84,7 @@ export default function GameBoard() {
       hp--;
     }
     board[x][y].isHit = true;
-    return true
+    return true;
   };
   return {
     receiveAttack,
