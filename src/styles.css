@@ -137,11 +137,11 @@ dialog {
   gap: 1.3rem;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1152px) {
   .board1,
   .board2 {
-    width: 330px;
-    height: 270px;
+    width: 60vw;
+    height: 30vh;
   }
   main {
     flex-direction: column;
