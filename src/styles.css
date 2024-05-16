@@ -9,11 +9,20 @@ body {
   justify-content: space-around;
   align-items: center;
   flex-direction: column;
+  background: linear-gradient(
+    to bottom,
+    hsl(200, 70%, 50%),
+    hsl(200, 70%, 80%)
+  );
 }
 header {
   height: var(--header-height);
   font-size: 40px;
   margin-top: 40px;
+}
+header > h1 {
+  color: hsl(200, 100%, 20%);
+  text-shadow: 0 1px 0 hsl(200, 100%, 30%);
 }
 * {
   margin: 0;
@@ -39,27 +48,8 @@ main {
   gap: 100px;
 }
 
-.cell {
-  border: 1px solid black;
-}
-
 button {
-  cursor: pointer;
-}
-
-button.cell:hover {
-  background-color: black;
-}
-
-dialog {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  cursor: crosshair;
 }
 
 .container {
@@ -69,7 +59,13 @@ dialog {
   align-items: center;
   gap: 20px;
 }
-
+.unchecked {
+  background-color: hsl(207, 72%, 80%);
+  border: 1px solid hsl(207, 72%, 40%);
+}
+.unchecked:hover {
+  background-color: hsl(207, 72%, 60%);
+}
 footer {
   height: var(--footer-height);
   font-size: 20px;
@@ -85,4 +81,57 @@ img {
 
 img:hover {
   transform: scale(1.1);
+}
+
+.container > h1 {
+  font-weight: bold;
+  color: hsl(200, 100%, 20%);
+  text-shadow: 0 1px 0 hsl(200, 100%, 30%);
+}
+
+footer {
+  color: hsl(200, 100%, 20%);
+  text-shadow: 0 1px 0 hsl(200, 100%, 30%);
+  font-weight: bold;
+}
+dialog {
+  border: 1px solid hsl(200, 100%, 20%);
+  position: fixed;
+  inset: 50%;
+  height: 180px;
+  background-color: hsl(207, 72%, 80%);
+  transform: translate(-50%, -50%);
+  border-radius: 20px;
+  width: 230px;
+}
+#dialogContainer > button {
+  border: 1px solid hsl(200, 100%, 30%);
+  color: white;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 15px;
+  background-color: hsl(207, 72%, 70%);
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#dialogContainer > button:hover {
+  background-color: hsl(207, 72%, 50%);
+}
+
+#dialogContainer > h1 {
+  color: hsl(200, 100%, 20%);
+  font-size: 25px !important;
+  text-shadow: 0 1px 0 hsl(200, 100%, 30%);
+  font-size: 20px;
+  text-align: center;
+}
+#dialogContainer {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
 }

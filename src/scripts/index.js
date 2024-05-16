@@ -2,11 +2,23 @@ import { init, reset } from "./DOM";
 import styles from "../styles.css";
 import icon from "../github.png";
 // Initial Render
-const resetBtn = document.querySelector(".reset");
 
-resetBtn.addEventListener("click", reset);
+document.querySelector("img").src = icon;
 
 init();
 
-const img = document.querySelector("img");
-img.src = icon;
+const resetButton = document.querySelector(".reset");
+resetButton.addEventListener("click", () => {
+  const board1 = document.querySelector(".board1");
+  const board2 = document.querySelector(".board2");
+  const dialog = document.querySelector("dialog");
+  const gameOver = document.querySelector(".over");
+    
+  board1.innerHTML = "";
+  board2.innerHTML = "";
+  dialog.close();
+  gameOver.innerHTML = "";
+
+  // Re-initialize the game state and render the initial UI
+  init();
+});

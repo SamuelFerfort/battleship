@@ -49,7 +49,7 @@ export default function GameBoard() {
         const startX = Math.floor(Math.random() * columns);
         const startY = Math.floor(Math.random() * rows);
         const orientation = Math.random() < 0.5 ? "horizontal" : "vertical";
-
+        
         // Check if the ship can be placed at the generated coordinates
         if (canPlaceShip(ship, startX, startY, orientation)) {
           placeShip(ship, startX, startY, orientation);
