@@ -147,4 +147,12 @@ dialog {
     flex-direction: column;
     gap: 20px;
   }
+  header {
+    height: var(--header-height);
+    font-size: 1.2rem;
+    margin-top: 1rem;
+  }
+  .container > h1 {
+    font-size: 1.5rem;
+  }
 }
