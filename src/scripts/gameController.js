@@ -26,7 +26,7 @@ export default function GameController() {
   };
 
   const getActivePlayer = () => activePlayer;
-
+  
   const playRound = (x, y) => {
     const result = activePlayer.att(x, y);
     return result

@@ -17,6 +17,9 @@ function ScreenController() {
 
         if (!cell.isHit) {
           cellBtn.classList.add("unchecked");
+          if (activePlayer.player === "Player 1") {
+            cellBtn.classList.add("hover");
+          }
         } else if (cell.isHit) {
           cellBtn.style.backgroundColor = "hsl(207, 72%, 60%)";
         }

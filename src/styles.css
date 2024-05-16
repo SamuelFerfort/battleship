@@ -63,7 +63,8 @@ button {
   background-color: hsl(207, 72%, 80%);
   border: 1px solid hsl(207, 72%, 40%);
 }
-.unchecked:hover {
+
+.hover:hover {
   background-color: hsl(207, 72%, 60%);
 }
 footer {
@@ -137,7 +138,6 @@ dialog {
 }
 
 @media (max-width: 768px) {
- 
   .board1,
   .board2 {
     width: 330px;
