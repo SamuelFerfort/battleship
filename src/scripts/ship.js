@@ -1,6 +1,6 @@
 export default class Ship {
   constructor(hp) {
-    this.hp = 10;
+    this.hp = hp;
   }
 
   hit() {

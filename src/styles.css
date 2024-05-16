@@ -1,0 +1,88 @@
+:root {
+  --header-height: 50px;
+  --footer-height: 70px;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+}
+header {
+  height: var(--header-height);
+  font-size: 40px;
+  margin-top: 40px;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", Arial;
+}
+.board1,
+.board2 {
+  height: 500px;
+  width: 500px;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100% - var(--footer-height) - var(--header-height));
+  width: auto;
+  gap: 100px;
+}
+
+.cell {
+  border: 1px solid black;
+}
+
+button {
+  cursor: pointer;
+}
+
+button.cell:hover {
+  background-color: black;
+}
+
+dialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+footer {
+  height: var(--footer-height);
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+img {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 50%;
+}
+
+img:hover {
+  transform: scale(1.1);
+}
