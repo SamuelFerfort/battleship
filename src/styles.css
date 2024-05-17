@@ -1,4 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
+
 
 :root {
   --header-height: 3rem;
@@ -181,9 +183,10 @@ dialog {
   background: linear-gradient(to bottom right, pink, lightcoral) !important;
   border: 1.4px solid red;
   font-size: 2rem;
-  font-weight: bold;
   color: darkred;
+  padding-top: 10px;
   box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+  font-family: "Luckiest Guy";
 }
 .ship {
   background-color: hsl(0, 0%, 20%);
