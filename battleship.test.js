@@ -2,8 +2,6 @@ import Ship from "./src/scripts/ship";
 import GameBoard from "./src/scripts/gameBoard";
 import GameController from "./src/scripts/gameController";
 
-
-
 describe("Ship", () => {
   let ship;
 
@@ -17,7 +15,7 @@ describe("Ship", () => {
   });
 
   test("Ship is sunk", () => {
-    // Hit the ship 10 times to sink it
+   
     for (let i = 0; i < 10; i++) {
       ship.hit();
     }
@@ -47,4 +45,55 @@ describe("GameBoard", () => {
   });
 });
 
+describe("GameController", () => {
+  let gameController;
 
+  beforeEach(() => {
+    gameController = GameController();
+  });
+
+  test("should initialize with Player 1 as the active player", () => {
+    const activePlayer = gameController.getActivePlayer();
+    expect(activePlayer.player).toBe("Player 1");
+  });
+
+  test("should switch to the other player", () => {
+    gameController.switchPlayerTurn();
+    let activePlayer = gameController.getActivePlayer();
+    expect(activePlayer.player).toBe("Computer");
+
+    gameController.switchPlayerTurn();
+    activePlayer = gameController.getActivePlayer();
+    expect(activePlayer.player).toBe("Player 1");
+  });
+
+  test("should play a round and return the result", () => {
+    const x = 0;
+    const y = 0;
+    const activePlayer = gameController.getActivePlayer();
+    activePlayer.board()[x][y] = { hasShip: true, ship: new Ship(1) };
+    const result = gameController.playRound(x, y);
+    expect(result).toBe("hit");
+  });
+
+  test("should play a computer round and return the result", () => {
+    const result = gameController.playComputerRound();
+    expect(["hit", "switch", "over"]).toContain(result);
+  });
+
+  test("should play until the game is over", () => {
+    const activePlayer = gameController.getActivePlayer();
+    const board = activePlayer.board();
+
+    let result;
+    // Simulate hitting all ship positions
+    for (let i = 0; i < 10; i++) {
+      for (let j = 0; j < 10; j++) {
+        if (board[i][j].hasShip) {
+          result = gameController.playRound(i, j);
+        }
+      }
+    }
+    expect(result).toBe("over");
+  });
+});
