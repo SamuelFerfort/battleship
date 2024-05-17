@@ -21,21 +21,18 @@ function ScreenController() {
             cellBtn.classList.add("hover");
           }
         } else if (cell.isHit) {
-          cellBtn.style.backgroundColor = "hsl(207, 72%, 60%)";
-         
+          cellBtn.classList.add("missed");
         }
         if (activePlayer.player === "Computer" && cell.hasShip) {
-          cellBtn.style.backgroundColor = " hsl(0, 0%, 20%)";
-          cellBtn.classList.add("ship")
+          cellBtn.classList.add("ship");
           cellBtn.classList.remove("unchecked");
         }
         if (cell.isHit && cell.ship) {
           if (cell.ship.isSunk()) {
             cellBtn.classList.remove("unchecked");
             cellBtn.classList.add("sunk");
-            cellBtn.innerHTML = "X"
+            cellBtn.innerHTML = "X";
           } else {
-            cellBtn.style.backgroundColor = "hsl(0, 100%, 60%)"
             cellBtn.classList.add("hit");
           }
         }

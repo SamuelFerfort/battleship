@@ -1,9 +1,7 @@
 import { init, reset } from "./DOM";
 import styles from "../styles.css";
-import icon from "../github.png";
+import battleship from "../battleship.png";
 // Initial Render
-
-document.querySelector("img").src = icon;
 
 init();
 
@@ -13,7 +11,7 @@ resetButton.addEventListener("click", () => {
   const board2 = document.querySelector(".board2");
   const dialog = document.querySelector("dialog");
   const gameOver = document.querySelector(".over");
-    
+
   board1.innerHTML = "";
   board2.innerHTML = "";
   dialog.close();
