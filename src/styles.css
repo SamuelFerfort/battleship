@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+
 :root {
   --header-height: 3rem;
   --footer-height: 4rem;
@@ -18,7 +20,7 @@ body {
 }
 header {
   height: var(--header-height);
-  font-size: 2.2rem;
+  font-size: 2.5rem;
   margin-top: 2.5rem;
 }
 header > h1 {
@@ -29,7 +31,7 @@ header > h1 {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Roboto", Arial;
+  font-family: "Orbitron";
 }
 .board1,
 .board2 {
@@ -92,6 +94,7 @@ img:hover {
   font-weight: bold;
   color: hsl(200, 100%, 20%);
   text-shadow: 0 1px 0 hsl(200, 100%, 30%);
+  font-size: 2.8rem;
 }
 
 footer {
@@ -181,8 +184,6 @@ dialog {
   font-weight: bold;
   color: darkred;
   box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
-
-  
 }
 .ship {
   background-color: hsl(0, 0%, 20%);
@@ -190,6 +191,5 @@ dialog {
 }
 
 .hit {
-  
   border: 1px solid hsl(0, 100%, 80%);
 }

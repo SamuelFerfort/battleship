@@ -39,9 +39,18 @@ const config = {
         test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/i,
         type: "asset/resource", // Ensure images are copied to dist folder
       },
-
-      // Add your rules for custom modules here
-      // Learn more about loaders from https://webpack.js.org/loaders/
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/,
+        use: [
+          {
+            loader: "file-loader",
+            options: {
+              name: "[name].[ext]",
+              outputPath: "fonts/",
+            },
+          },
+        ],
+      },
     ],
   },
 };
