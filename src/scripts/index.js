@@ -1,4 +1,4 @@
-import { init, reset } from "./DOM";
+import init from "./DOM";
 import styles from "../styles.css";
 import battleship from "../battleship.png";
 // Initial Render

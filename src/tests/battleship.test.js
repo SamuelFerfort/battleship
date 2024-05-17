@@ -1,6 +1,8 @@
-import Ship from "./ship";
-import GameBoard from "./gameBoard";
-import Player from "./player";
+import Ship from "../scripts/ship";
+import GameBoard from "../scripts/gameBoard";
+import GameController from "../scripts/gameController";
+
+
 
 describe("Ship", () => {
   let ship;
@@ -40,8 +42,9 @@ describe("GameBoard", () => {
     gameBoard.getBoard()[0][0].hasShip = true;
     gameBoard.getBoard()[0][0].ship = new Ship(2);
 
-
     gameBoard.receiveAttack(0, 0);
-    expect(gameBoard.getHp()).toBe(19); 
+    expect(gameBoard.getHp()).toBe(19);
   });
 });
+
+

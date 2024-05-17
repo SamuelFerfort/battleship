@@ -40,53 +40,7 @@ function ScreenController() {
       });
     });
   };
-  const playComputerRound = () => {
-    let x, y;
-    let result = false;
-    let counter = 0;
-    const previousHits = {};
-    while (result === "hit" || result === false) {
-      if (Object.keys(previousHits).length > 0 && counter < 10) {
-        const lastHit = previousHits[Object.keys(previousHits)[0]];
-        x = lastHit.x;
-        y = lastHit.y;
-
-        const directions = [
-          [-1, 0],
-          [1, 0],
-          [0, -1],
-          [0, 1],
-        ];
-        const randomIndex = Math.floor(Math.random() * directions.length);
-        const randomDirection = directions[randomIndex];
-
-        x += randomDirection[0];
-        y += randomDirection[1];
-
-        x = Math.max(0, Math.min(x, 9));
-        y = Math.max(0, Math.min(y, 9));
-        counter++;
-        if (previousHits[`${x}-${y}`]) {
-          continue;
-        }
-      } else {
-        // If no previous hits, fall back to random attack
-        x = Math.floor(Math.random() * 10);
-        y = Math.floor(Math.random() * 10);
-      }
-
-      result = control.playRound(x, y);
-      previousHits[`${x}-${y}`] = { x, y };
-
-      if (result === "hit") {
-        // Update previous hits if it's a hit
-        previousHits[`${x}-${y}`] = { x, y };
-      }
-
-      if (result === "over") return result;
-    }
-    return result;
-  };
+  
   const clickHandler = (e) => {
     const currentPlayer = control.getActivePlayer();
     let x, y;
@@ -109,7 +63,7 @@ function ScreenController() {
     control.switchPlayerTurn();
 
     // play computer move then switch move again
-    let computerResult = playComputerRound();
+    let computerResult = control.playComputerRound();
     updateScreen(control.getActivePlayer());
 
     if (computerResult === "over") {
@@ -133,6 +87,6 @@ function ScreenController() {
   control.switchPlayerTurn();
 }
 
-export function init() {
+export default function init() {
   ScreenController();
 }
