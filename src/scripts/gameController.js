@@ -1,6 +1,6 @@
 import GameBoard from "./gameBoard";
 
-export default function GameController() {
+export default function GameController(board1, board2) {
   const gameBoard1 = GameBoard();
   const gameBoard2 = GameBoard();
 
@@ -8,14 +8,14 @@ export default function GameController() {
     {
       player: "Player 1",
       board: gameBoard2.getBoard,
-      div: document.querySelector(".board2"),
+      div: board2,
       att: gameBoard2.receiveAttack,
       hp: gameBoard2.getHp,
     },
     {
       player: "Computer",
       board: gameBoard1.getBoard,
-      div: document.querySelector(".board1"),
+      div: board1,
       att: gameBoard1.receiveAttack,
       hp: gameBoard1.getHp,
     },

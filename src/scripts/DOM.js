@@ -1,8 +1,9 @@
 import GameController from "./gameController";
 let control;
 function ScreenController() {
+  const board1 = document.querySelector(".board1");
   const board2 = document.querySelector(".board2");
-  control = GameController();
+  control = GameController(board1, board2);
 
   const dialog = document.querySelector("dialog");
   const gameOver = document.querySelector(".over");
@@ -40,7 +41,7 @@ function ScreenController() {
       });
     });
   };
-  
+
   const clickHandler = (e) => {
     const currentPlayer = control.getActivePlayer();
     let x, y;
@@ -62,12 +63,10 @@ function ScreenController() {
 
     control.switchPlayerTurn();
 
-    // play computer move then switch move again
     let computerResult = control.playComputerRound();
     updateScreen(control.getActivePlayer());
 
     if (computerResult === "over") {
-      // finish game
       gameOver.innerHTML = `${control.getActivePlayer().player} Won!`;
 
       dialog.show();
