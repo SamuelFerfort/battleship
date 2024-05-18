@@ -95,9 +95,9 @@ export default function GameController(board1, board2) {
           const firstHit = hits[0];
           const secondHit = hits[1];
           if (firstHit.x === secondHit.x) {
-            state.orientation = "horizontal";
-          } else if (firstHit.y === secondHit.y) {
             state.orientation = "vertical";
+          } else if (firstHit.y === secondHit.y) {
+            state.orientation = "horizontal";
           }
           state.initialHit = firstHit;
           direction = state.orientation || "all";
@@ -148,6 +148,15 @@ export default function GameController(board1, board2) {
     }
 
     return result;
+  };
+
+  // Initialize the state object outside the function
+  const computerState = {
+    previousMoves: new Set(),
+    hits: [],
+    targets: [],
+    orientation: null,
+    initialHit: null,
   };
 
   return {
