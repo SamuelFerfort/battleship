@@ -15,7 +15,6 @@ describe("Ship", () => {
   });
 
   test("Ship is sunk", () => {
-   
     for (let i = 0; i < 10; i++) {
       ship.hit();
     }
@@ -73,12 +72,28 @@ describe("GameController", () => {
     const activePlayer = gameController.getActivePlayer();
     activePlayer.board()[x][y] = { hasShip: true, ship: new Ship(1) };
     const result = gameController.playRound(x, y);
+    expect(result).toBe("sunk");
+  });
+
+  test("should play a round and return the result", () => {
+    const x = 0;
+    const y = 0;
+    const activePlayer = gameController.getActivePlayer();
+    activePlayer.board()[x][y] = { hasShip: true, ship: new Ship(2) };
+    const result = gameController.playRound(x, y);
     expect(result).toBe("hit");
   });
 
   test("should play a computer round and return the result", () => {
-    const result = gameController.playComputerRound();
-    expect(["hit", "switch", "over"]).toContain(result);
+    const computerState = {
+      previousMoves: new Set(),
+      hits: [],
+      targets: [],
+      orientation: null,
+      initialHit: null,
+    };
+    const result = gameController.playComputerRound(computerState);
+    expect(["hit", "switch", "over", "sunk"]).toContain(result);
   });
 
   test("should play until the game is over", () => {
