@@ -41,7 +41,13 @@ function ScreenController() {
       });
     });
   };
-
+  const computerState = {
+    previousMoves: new Set(),
+    hits: [],
+    targets: [],
+    orientation: null,
+    initialHit: null,
+  };
   const clickHandler = (e) => {
     const currentPlayer = control.getActivePlayer();
     let x, y;
@@ -59,11 +65,11 @@ function ScreenController() {
       return;
     }
 
-    if (result === "hit") return false;
+    if (result === "hit" || result === "sunk") return false;
 
     control.switchPlayerTurn();
 
-    let computerResult = control.playComputerRound();
+    let computerResult = control.playComputerRound(computerState);
     updateScreen(control.getActivePlayer());
 
     if (computerResult === "over") {

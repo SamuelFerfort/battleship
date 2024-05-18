@@ -85,8 +85,9 @@ export default function GameBoard() {
     if (board[x][y].hasShip) {
       board[x][y].ship.hit();
       hp--;
-      console.log(hp);
+
       if (hp === 0) return "over";
+      if (board[x][y].ship.isSunk()) return "sunk";
       return "hit";
     }
 
