@@ -5,7 +5,7 @@ function ScreenController() {
   const board2 = document.querySelector(".board2");
   control = GameController(board1, board2);
 
-  const dialog = document.querySelector("dialog");
+  const dialog = document.querySelector(".gameOver");
   const gameOver = document.querySelector(".over");
 
   const updateScreen = (activePlayer) => {
