@@ -32,7 +32,7 @@ function ScreenController() {
           if (cell.ship.isSunk()) {
             cellBtn.classList.remove("unchecked");
             cellBtn.classList.add("sunk");
-            cellBtn.innerHTML = "X";
+            cellBtn.innerHTML = "✕";
           } else {
             cellBtn.classList.add("hit");
           }
