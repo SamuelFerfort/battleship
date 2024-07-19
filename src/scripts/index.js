@@ -1,7 +1,5 @@
 import init from "./DOM";
-import styles from "../styles.css";
-import battleship from "../battleship.png";
-// Initial Render
+import "../styles.css";
 
 init();
 
@@ -17,6 +15,5 @@ resetButton.addEventListener("click", () => {
   dialog.close();
   gameOver.innerHTML = "";
 
-  // Re-initialize the game state and render the initial UI
   init();
 });
