@@ -36,8 +36,8 @@ const config = {
         use: [stylesHandler, "css-loader"],
       },
       {
-        test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/i,
-        type: "asset/resource", // Ensure images are copied to dist folder
+        test: /\.(png|jpg|webp|svg|eot|ttf|woff|woff2)$/i,
+        type: "asset/resource", 
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
